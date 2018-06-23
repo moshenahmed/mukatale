@@ -1,18 +1,26 @@
 import React, {Component} from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class PostList extends Component{
-
+   
     render(){
-        return(
-        <div></div>
-    )
-    }
+        const items = this.props.posts.map(post =>
+            <div key= {post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
+            </div>
+        );
+        return (
+            <div>
+                {items}
+            </div>
+        )
 
+    }
 }
 
 PostList.propTypes={
-    posts: propTypes.object
+    posts: PropTypes.array,
 }
 
 export default PostList

@@ -1,39 +1,35 @@
 import React, {Component} from 'react'
-import {getPosts} from "../../ActionApi";
+import {getPosts} from "../../actions/postActions";
 import PostList from "./PostList.js"
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
+class PostListContainer extends Component {
 
-class PostListContainer extends Component{
-    constructor(props){
-        super(props)
-        this.state ={
-            posts: {}
-        }
+    componentWillMount() {
+     this.props.getPosts();
     }
 
-    componentDidMount(){
-this.setState({posts: this.state.posts})
-    }
-
-render(){
-        console.log(this.state.posts)
+    render() {
+        console.log(this.props.posts.postDisplays)
         return(
-    <PostList  />
+        <PostList posts={this.props.posts}/>
         )
+
+    }
 }
 
-}
 
- function mapDispatchToProps(dispatch) {
-     return {
-         posts: () => {
-             dispatch(getPosts())
-         }
-     }
- }
 function mapStateToProps(state) {
-    return ({posts: "posts:" + state.posts})
+    return ({
+        posts:  state.posts.postDisplay})
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(PostListContainer)
+PostListContainer.propTypes ={
+    getPosts : PropTypes.func,
+    posts: PropTypes.array
+
+
+}
+
+export default connect(mapStateToProps, {getPosts})(PostListContainer)
