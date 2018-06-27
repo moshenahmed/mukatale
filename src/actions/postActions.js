@@ -2,7 +2,7 @@ import axios from "axios/index";
 import { GET_POSTS_SUCCESS, GET_POSTS_LOADING,GET_POSTS_ERROR} from '../actions/types';
 
 export const getPosts = () => dispatch => {
-        axios.get('https://jsonplaceholder.typicode.com/posts/')
+        axios.get('http://localhost:50656/')
             .then(response => response.data)
             .then(posts => {dispatch ({type:GET_POSTS_LOADING})
                 dispatch({

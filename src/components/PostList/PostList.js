@@ -4,16 +4,13 @@ import PropTypes from 'prop-types'
 class PostList extends Component{
    
     render(){
-        const items = this.props.posts.map(post =>
-            <div key= {post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-            </div>
-        );
         return (
-            <div>
-                {items}
-            </div>
+            this.props.posts.map( posts => 
+            <div  className="post-item" key = {posts.id}>
+                <div><h2>{posts.Title}</h2></div>
+                <div><span>{posts.Descritpion}</span></div>
+                <div><span>{posts.CreatedAt}</span></div>
+            </div>)
         )
 
     }
