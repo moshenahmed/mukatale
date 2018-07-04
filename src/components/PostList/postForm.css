@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px){
+    .create-post{
+        top: 50%;
+        display: block;
+        position: fixed;
+        right: 25%;
+    }
+}

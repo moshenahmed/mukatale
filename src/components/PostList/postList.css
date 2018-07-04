@@ -1,6 +1,14 @@
+@media only screen and (max-width: 600px){
 .post-item{
     background-color: pink;
-    width: 70%;
+    width: 60%;
     height: 230px;
-    
+    left: 20%;
+    position: relative; 
+}
+
+.image{
+    width: 100px;
+    height: 50px;   
+}
 }
